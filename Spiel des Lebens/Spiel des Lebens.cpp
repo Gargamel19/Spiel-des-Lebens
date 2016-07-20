@@ -8,17 +8,22 @@ using namespace std;
 using namespace std;
 #include <conio.h> 
 using namespace std;
+#include <fstream>
+using namespace std;
+#include <sstream>
+
 
 int spielfeldbauen();
 int bildrechnen();
-int auswahl();
 int paint();
-int random();
 int checknachbarn();
 int ng();
+int auswahl();
+int random();
 int blinker();
 int kreis();
 int pulsar();
+int auslesen();
 
 string output;
 
@@ -46,7 +51,7 @@ int main()
 	cout << "geben sie 'R' für Random ein" << endl; 
 	cout << "geben sie 'B' für Blinker ein" << endl;
 	cout << "geben sie 'K' für Kreis ein" << endl;
-	cout << "geben sie 'P' für p ein" << endl;
+	cout << "geben sie 'P' für Pulsar ein" << endl;
 	cin >> auswahlchar;
 	
 
@@ -402,7 +407,7 @@ int auswahl() {
 	{
 		random();
 	}
-	if (auswahlchar == 'B')
+	else if (auswahlchar == 'B')
 	{
 		blinker();
 	}
@@ -410,7 +415,7 @@ int auswahl() {
 	{
 		blinker();
 	}
-	if (auswahlchar == 'K')
+	else if (auswahlchar == 'K')
 	{
 		kreis();
 	}
@@ -418,13 +423,19 @@ int auswahl() {
 	{
 		kreis();
 	}
-	if (auswahlchar == 'P')
+	else if (auswahlchar == 'P')
 	{
 		pulsar();
 	}
 	else if (auswahlchar == 'p')
 	{
 		pulsar();
+	}
+	else if (auswahlchar == 'A') {
+		auslesen();
+	}
+	else if (auswahlchar == 'a') {
+		auslesen();
 	}
 	return(0);
 }
@@ -494,6 +505,7 @@ int kreis() {
 
 	return(0);
 }
+
 int pulsar() {
 
 	spielfeld[6][9] = 'x';
@@ -612,5 +624,91 @@ int pulsar() {
 	zellelebendig[16][13] = 1;
 	zellelebendig[16][14] = 1;
 
+	return(0);
+}
+
+int auslesen() {
+
+	ifstream namenliste("C:\\Users\\Ferdinand\\Desktop\\SpieldesLebens\\auslese.txt", ios::in);
+
+	string zeichenkette;
+
+	int linienzähler = 0;
+
+	
+
+	while (getline(namenliste, zeichenkette))
+	{
+
+		int a;
+		int b;
+		int c;
+		int d;
+		int e;
+		int f;
+		int g;
+		int h;
+		int i;
+		int j;
+
+		stringstream datenstrohm(zeichenkette);
+
+		datenstrohm >> a >> b >> c >> d >> e >> f >> g >> h >> i >> j;
+		
+		int f;
+		f = (x / 2) - 5;
+
+		if (a == 1)
+		{
+			spielfeld[f][f + linienzähler] = 'x';
+			zellelebendig[f][f + linienzähler] = 1;
+		}
+		if (b == 1)
+		{
+			spielfeld[f + 1][f + linienzähler] = 'x';
+			zellelebendig[f + 1][f + linienzähler] = 1;
+		}
+		if (c == 1)
+		{
+			spielfeld[f + 2][f + linienzähler] = 'x';
+			zellelebendig[f + 2][f + linienzähler] = 1;
+		}
+		if (d == 1)
+		{
+			spielfeld[f + 3][f + linienzähler] = 'x';
+			zellelebendig[f + 3][f + linienzähler] = 1;
+		}
+		if (e == 1)
+		{
+			spielfeld[f + 4][f + linienzähler] = 'x';
+			zellelebendig[f + 4][f + linienzähler] = 1;
+		}
+		if (f == 1)
+		{
+			spielfeld[f + 5][f + linienzähler] = 'x';
+			zellelebendig[f + 5][f + linienzähler] = 1;
+		}
+		if (g == 1)
+		{
+			spielfeld[f + 6][f + linienzähler] = 'x';
+			zellelebendig[f + 6][f + linienzähler] = 1;
+		}
+		if (h == 1)
+		{
+			spielfeld[f + 7][f + linienzähler] = 'x';
+			zellelebendig[f + 7][f + linienzähler] = 1;
+		}
+		if (i == 1)
+		{
+			spielfeld[f + 8][f + linienzähler] = 'x';
+			zellelebendig[f + 8][f + linienzähler] = 1;
+		}
+		if (j == 1)
+		{
+			spielfeld[f + 9][f + linienzähler] = 'x';
+			zellelebendig[f + 9][f + linienzähler] = 1;
+		}
+		linienzähler++;
+	}
 	return(0);
 }
