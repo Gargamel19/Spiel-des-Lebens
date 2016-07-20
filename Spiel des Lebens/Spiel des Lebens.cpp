@@ -23,9 +23,10 @@ int random();
 int blinker();
 int kreis();
 int pulsar();
+int magneten();
 int auslesen();
 
-string output;
+string adresse;
 
 int gen = 0;
 int seed;
@@ -33,6 +34,7 @@ char auswahlchar;
 int warscheinlichkeit = 6;
 
 int x = 50, y = 50;
+int k = (x / 2) - 8;
 
 char spielfeld[50][50];
 
@@ -52,6 +54,7 @@ int main()
 	cout << "geben sie 'B' für Blinker ein" << endl;
 	cout << "geben sie 'K' für Kreis ein" << endl;
 	cout << "geben sie 'P' für Pulsar ein" << endl;
+	cout << "geben sie 'M' für Magneten ein" << endl;
 	cin >> auswahlchar;
 	
 
@@ -431,11 +434,11 @@ int auswahl() {
 	{
 		pulsar();
 	}
-	else if (auswahlchar == 'A') {
-		auslesen();
+	else if (auswahlchar == 'M') {
+		magneten();
 	}
-	else if (auswahlchar == 'a') {
-		auslesen();
+	else if (auswahlchar == 'm') {
+		magneten();
 	}
 	return(0);
 }
@@ -470,166 +473,43 @@ int random() {
 
 int blinker() {
 
-	spielfeld[9][10] = 'x';
-	spielfeld[9][9] = 'x';
-	spielfeld[9][8] = 'x';
+	adresse = "C:\\Users\\Ferdinand\\Desktop\\SpieldesLebens\\blinker.txt";
 
-	zellelebendig[9][10] = 1;
-	zellelebendig[9][9] = 1;
-	zellelebendig[9][8] = 1;
+	auslesen();
 
 	return(0);
 }
 
 int kreis() {
 
-	spielfeld[9][9] = 'x';
-	spielfeld[13][9] = 'x';
-	spielfeld[11][7] = 'x';
-	spielfeld[11][11] = 'x';
+	adresse = "C:\\Users\\Ferdinand\\Desktop\\SpieldesLebens\\kreis.txt";
 
-	spielfeld[10][8] = 'x';
-	spielfeld[12][8] = 'x';
-	spielfeld[10][10] = 'x';
-	spielfeld[12][10] = 'x';
-
-	zellelebendig[9][9] = 1;
-	zellelebendig[13][9] = 1;
-	zellelebendig[11][7] = 1;
-	zellelebendig[11][11] = 1;
-
-	zellelebendig[10][8] = 1;
-	zellelebendig[12][8] = 1;
-	zellelebendig[10][10] = 1;
-	zellelebendig[12][10] = 1;
+	auslesen();
 
 	return(0);
 }
 
 int pulsar() {
 
-	spielfeld[6][9] = 'x';
-	spielfeld[7][9] = 'x';
-	spielfeld[8][9] = 'x';
-	spielfeld[12][9] = 'x';
-	spielfeld[13][9] = 'x';
-	spielfeld[14][9] = 'x';
+	adresse = "C:\\Users\\Ferdinand\\Desktop\\SpieldesLebens\\pulsar.txt";
 
-	spielfeld[6][11] = 'x';
-	spielfeld[7][11] = 'x';
-	spielfeld[8][11] = 'x';
-	spielfeld[12][11] = 'x';
-	spielfeld[13][11] = 'x';
-	spielfeld[14][11] = 'x';
+	auslesen();
 
-	spielfeld[6][4] = 'x';
-	spielfeld[7][4] = 'x';
-	spielfeld[8][4] = 'x';
-	spielfeld[12][4] = 'x';
-	spielfeld[13][4] = 'x';
-	spielfeld[14][4] = 'x';
+	return(0);
+}
 
-	spielfeld[6][16] = 'x';
-	spielfeld[7][16] = 'x';
-	spielfeld[8][16] = 'x';
-	spielfeld[12][16] = 'x';
-	spielfeld[13][16] = 'x';
-	spielfeld[14][16] = 'x';
+int magneten() {
 
+	adresse = "C:\\Users\\Ferdinand\\Desktop\\SpieldesLebens\\magneten.txt";
 
-	spielfeld[9][6] = 'x';
-	spielfeld[9][7] = 'x';
-	spielfeld[9][8] = 'x';
-	spielfeld[9][12] = 'x';
-	spielfeld[9][13] = 'x';
-	spielfeld[9][14] = 'x';
-
-	spielfeld[11][6] = 'x';
-	spielfeld[11][7] = 'x';
-	spielfeld[11][8] = 'x';
-	spielfeld[11][12] = 'x';
-	spielfeld[11][13] = 'x';
-	spielfeld[11][14] = 'x';
-
-	spielfeld[4][6] = 'x';
-	spielfeld[4][7] = 'x';
-	spielfeld[4][8] = 'x';
-	spielfeld[4][12] = 'x';
-	spielfeld[4][13] = 'x';
-	spielfeld[4][14] = 'x';
-
-	spielfeld[16][6] = 'x';
-	spielfeld[16][7] = 'x';
-	spielfeld[16][8] = 'x';
-	spielfeld[16][12] = 'x';
-	spielfeld[16][13] = 'x';
-	spielfeld[16][14] = 'x';
-
-
-
-	zellelebendig[6][9] = 1;
-	zellelebendig[7][9] = 1;
-	zellelebendig[8][9] = 1;
-	zellelebendig[12][9] = 1;
-	zellelebendig[13][9] = 1;
-	zellelebendig[14][9] = 1;
-
-	zellelebendig[6][11] = 1;
-	zellelebendig[7][11] = 1;
-	zellelebendig[8][11] = 1;
-	zellelebendig[12][11] = 1;
-	zellelebendig[13][11] = 1;
-	zellelebendig[14][11] = 1;
-
-	zellelebendig[6][4] = 1;
-	zellelebendig[7][4] = 1;
-	zellelebendig[8][4] = 1;
-	zellelebendig[12][4] = 1;
-	zellelebendig[13][4] = 1;
-	zellelebendig[14][4] = 1;
-
-	zellelebendig[6][16] = 1;
-	zellelebendig[7][16] = 1;
-	zellelebendig[8][16] = 1;
-	zellelebendig[12][16] = 1;
-	zellelebendig[13][16] = 1;
-	zellelebendig[14][16] = 1;
-
-
-	zellelebendig[9][6] = 1;
-	zellelebendig[9][7] = 1;
-	zellelebendig[9][8] = 1;
-	zellelebendig[9][12] = 1;
-	zellelebendig[9][13] = 1;
-	zellelebendig[9][14] = 1;
-
-	zellelebendig[11][6] = 1;
-	zellelebendig[11][7] = 1;
-	zellelebendig[11][8] = 1;
-	zellelebendig[11][12] = 1;
-	zellelebendig[11][13] = 1;
-	zellelebendig[11][14] = 1;
-
-	zellelebendig[4][6] = 1;
-	zellelebendig[4][7] = 1;
-	zellelebendig[4][8] = 1;
-	zellelebendig[4][12] = 1;
-	zellelebendig[4][13] = 1;
-	zellelebendig[4][14] = 1;
-
-	zellelebendig[16][6] = 1;
-	zellelebendig[16][7] = 1;
-	zellelebendig[16][8] = 1;
-	zellelebendig[16][12] = 1;
-	zellelebendig[16][13] = 1;
-	zellelebendig[16][14] = 1;
+	auslesen();
 
 	return(0);
 }
 
 int auslesen() {
 
-	ifstream namenliste("C:\\Users\\Ferdinand\\Desktop\\SpieldesLebens\\auslese.txt", ios::in);
+	ifstream namenliste(adresse, ios::in);
 
 	string zeichenkette;
 
@@ -650,63 +530,92 @@ int auslesen() {
 		int h;
 		int i;
 		int j;
+		int l;
+		int m;
+		int n;
+		int o;
+		int p;
 
 		stringstream datenstrohm(zeichenkette);
 
-		datenstrohm >> a >> b >> c >> d >> e >> f >> g >> h >> i >> j;
+		datenstrohm >> a >> b >> c >> d >> e >> f >> g >> h >> i >> j >> l >> m >> n >> o >> p;
 		
-		int f;
-		f = (x / 2) - 5;
+		
 
 		if (a == 1)
 		{
-			spielfeld[f][f + linienzähler] = 'x';
-			zellelebendig[f][f + linienzähler] = 1;
+			spielfeld[k][k + linienzähler] = 'x';
+			zellelebendig[k][k + linienzähler] = 1;
 		}
 		if (b == 1)
 		{
-			spielfeld[f + 1][f + linienzähler] = 'x';
-			zellelebendig[f + 1][f + linienzähler] = 1;
+			spielfeld[k + 1][k + linienzähler] = 'x';
+			zellelebendig[k + 1][k + linienzähler] = 1;
 		}
 		if (c == 1)
 		{
-			spielfeld[f + 2][f + linienzähler] = 'x';
-			zellelebendig[f + 2][f + linienzähler] = 1;
+			spielfeld[k + 2][k + linienzähler] = 'x';
+			zellelebendig[k + 2][k + linienzähler] = 1;
 		}
 		if (d == 1)
 		{
-			spielfeld[f + 3][f + linienzähler] = 'x';
-			zellelebendig[f + 3][f + linienzähler] = 1;
+			spielfeld[k + 3][k + linienzähler] = 'x';
+			zellelebendig[k + 3][k + linienzähler] = 1;
 		}
 		if (e == 1)
 		{
-			spielfeld[f + 4][f + linienzähler] = 'x';
-			zellelebendig[f + 4][f + linienzähler] = 1;
+			spielfeld[k + 4][k + linienzähler] = 'x';
+			zellelebendig[k + 4][k + linienzähler] = 1;
 		}
 		if (f == 1)
 		{
-			spielfeld[f + 5][f + linienzähler] = 'x';
-			zellelebendig[f + 5][f + linienzähler] = 1;
+			spielfeld[k + 5][k + linienzähler] = 'x';
+			zellelebendig[k + 5][k + linienzähler] = 1;
 		}
 		if (g == 1)
 		{
-			spielfeld[f + 6][f + linienzähler] = 'x';
-			zellelebendig[f + 6][f + linienzähler] = 1;
+			spielfeld[k + 6][k + linienzähler] = 'x';
+			zellelebendig[k + 6][k + linienzähler] = 1;
 		}
 		if (h == 1)
 		{
-			spielfeld[f + 7][f + linienzähler] = 'x';
-			zellelebendig[f + 7][f + linienzähler] = 1;
+			spielfeld[k + 7][k + linienzähler] = 'x';
+			zellelebendig[k + 7][k + linienzähler] = 1;
 		}
 		if (i == 1)
 		{
-			spielfeld[f + 8][f + linienzähler] = 'x';
-			zellelebendig[f + 8][f + linienzähler] = 1;
+			spielfeld[k + 8][k + linienzähler] = 'x';
+			zellelebendig[k + 8][k + linienzähler] = 1;
 		}
 		if (j == 1)
 		{
-			spielfeld[f + 9][f + linienzähler] = 'x';
-			zellelebendig[f + 9][f + linienzähler] = 1;
+			spielfeld[k + 9][k + linienzähler] = 'x';
+			zellelebendig[k + 9][k + linienzähler] = 1;
+		}
+		if (l == 1)
+		{
+			spielfeld[k + 10][k + linienzähler] = 'x';
+			zellelebendig[k + 10][k + linienzähler] = 1;
+		}
+		if (m == 1)
+		{
+			spielfeld[k + 11][k + linienzähler] = 'x';
+			zellelebendig[k + 11][k + linienzähler] = 1;
+		}
+		if (n == 1)
+		{
+			spielfeld[k + 12][k + linienzähler] = 'x';
+			zellelebendig[k + 12][k + linienzähler] = 1;
+		}
+		if (o == 1)
+		{
+			spielfeld[k + 13][k + linienzähler] = 'x';
+			zellelebendig[k + 13][k + linienzähler] = 1;
+		}
+		if (p == 1)
+		{
+			spielfeld[k + 14][k + linienzähler] = 'x';
+			zellelebendig[k + 14][k + linienzähler] = 1;
 		}
 		linienzähler++;
 	}
