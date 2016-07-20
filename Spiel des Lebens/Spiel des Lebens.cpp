@@ -559,3 +559,5 @@ int auslesen() {
 	}
 	return(0);
 }
+
+//ende
