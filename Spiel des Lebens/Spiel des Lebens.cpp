@@ -24,6 +24,7 @@ int blinker();
 int kreis();
 int pulsar();
 int magneten();
+int gun();
 int auslesen();
 
 string adresse;
@@ -34,7 +35,7 @@ char auswahlchar;
 int warscheinlichkeit = 6;
 
 int x = 50, y = 50;
-int k = (x / 2) - 8;
+int k = (x / 2) - 21;
 
 char spielfeld[50][50];
 
@@ -55,6 +56,7 @@ int main()
 	cout << "geben sie 'K' für Kreis ein" << endl;
 	cout << "geben sie 'P' für Pulsar ein" << endl;
 	cout << "geben sie 'M' für Magneten ein" << endl;
+	cout << "geben sie 'G' für Gun ein" << endl;
 	cin >> auswahlchar;
 	
 
@@ -440,6 +442,12 @@ int auswahl() {
 	else if (auswahlchar == 'm') {
 		magneten();
 	}
+	else if (auswahlchar == 'G') {
+		gun();
+	}
+	else if (auswahlchar == 'g') {
+		gun();
+	}
 	return(0);
 }
 
@@ -507,6 +515,15 @@ int magneten() {
 	return(0);
 }
 
+int gun() {
+
+	adresse = "C:\\Users\\Ferdinand\\Desktop\\SpieldesLebens\\gun.txt";
+
+	auslesen();
+
+	return(0);
+}
+
 int auslesen() {
 
 	ifstream namenliste(adresse, ios::in);
@@ -520,103 +537,24 @@ int auslesen() {
 	while (getline(namenliste, zeichenkette))
 	{
 
-		int a;
-		int b;
-		int c;
-		int d;
-		int e;
-		int f;
-		int g;
-		int h;
-		int i;
-		int j;
-		int l;
-		int m;
-		int n;
-		int o;
-		int p;
+		int a[40];
+		
 
 		stringstream datenstrohm(zeichenkette);
 
-		datenstrohm >> a >> b >> c >> d >> e >> f >> g >> h >> i >> j >> l >> m >> n >> o >> p;
+		datenstrohm >> a[0] >> a[1] >> a[2] >> a[3] >> a[4] >> a[5] >> a[6] >> a[7] >> a[8] >> a[9] >> a[10] >> a[11] >> a[12] >> a[13] >> a[14] >> a[15] >> a[16] >> a[17] >> a[18] >> a[19] >> a[20] >> a[21] >> a[22] >> a[23] >> a[24] >> a[25] >> a[26] >> a[27] >> a[28] >> a[29] >> a[30] >> a[31] >> a[32] >> a[33] >> a[34] >> a[35] >> a[36] >> a[37] >> a[38] >> a[39];
 		
 		
-
-		if (a == 1)
+		for (int i = 0; i < 40; i++)
 		{
-			spielfeld[k][k + linienzähler] = 'x';
-			zellelebendig[k][k + linienzähler] = 1;
+			if (a[i] == 1)
+				{
+					spielfeld[k + linienzähler][k + i] = 'x';
+					zellelebendig[k + linienzähler][k + i] = 1;
+				}
 		}
-		if (b == 1)
-		{
-			spielfeld[k + 1][k + linienzähler] = 'x';
-			zellelebendig[k + 1][k + linienzähler] = 1;
-		}
-		if (c == 1)
-		{
-			spielfeld[k + 2][k + linienzähler] = 'x';
-			zellelebendig[k + 2][k + linienzähler] = 1;
-		}
-		if (d == 1)
-		{
-			spielfeld[k + 3][k + linienzähler] = 'x';
-			zellelebendig[k + 3][k + linienzähler] = 1;
-		}
-		if (e == 1)
-		{
-			spielfeld[k + 4][k + linienzähler] = 'x';
-			zellelebendig[k + 4][k + linienzähler] = 1;
-		}
-		if (f == 1)
-		{
-			spielfeld[k + 5][k + linienzähler] = 'x';
-			zellelebendig[k + 5][k + linienzähler] = 1;
-		}
-		if (g == 1)
-		{
-			spielfeld[k + 6][k + linienzähler] = 'x';
-			zellelebendig[k + 6][k + linienzähler] = 1;
-		}
-		if (h == 1)
-		{
-			spielfeld[k + 7][k + linienzähler] = 'x';
-			zellelebendig[k + 7][k + linienzähler] = 1;
-		}
-		if (i == 1)
-		{
-			spielfeld[k + 8][k + linienzähler] = 'x';
-			zellelebendig[k + 8][k + linienzähler] = 1;
-		}
-		if (j == 1)
-		{
-			spielfeld[k + 9][k + linienzähler] = 'x';
-			zellelebendig[k + 9][k + linienzähler] = 1;
-		}
-		if (l == 1)
-		{
-			spielfeld[k + 10][k + linienzähler] = 'x';
-			zellelebendig[k + 10][k + linienzähler] = 1;
-		}
-		if (m == 1)
-		{
-			spielfeld[k + 11][k + linienzähler] = 'x';
-			zellelebendig[k + 11][k + linienzähler] = 1;
-		}
-		if (n == 1)
-		{
-			spielfeld[k + 12][k + linienzähler] = 'x';
-			zellelebendig[k + 12][k + linienzähler] = 1;
-		}
-		if (o == 1)
-		{
-			spielfeld[k + 13][k + linienzähler] = 'x';
-			zellelebendig[k + 13][k + linienzähler] = 1;
-		}
-		if (p == 1)
-		{
-			spielfeld[k + 14][k + linienzähler] = 'x';
-			zellelebendig[k + 14][k + linienzähler] = 1;
-		}
+		
+		
 		linienzähler++;
 	}
 	return(0);
